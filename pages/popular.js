@@ -1,12 +1,12 @@
 import React from "react";
 import Layout from "../components/layout/Layout";
 
-const AboutUs = () => (
+const Popular = () => (
   <div>
     <Layout>
-      <h1>About Us</h1>
+      <h1>Populares</h1>
     </Layout>
   </div>
 );
 
-export default AboutUs;
+export default Popular;

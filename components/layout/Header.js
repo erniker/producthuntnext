@@ -4,6 +4,7 @@ import { css } from "@emotion/react";
 import Link from "next/Link";
 import Search from "../ui/Search";
 import Navegation from "./Navegation";
+import Button from "../ui/button";
 
 const ContainerHeader = styled.div`
   max-width: 1200px;
@@ -25,6 +26,8 @@ const Logo = styled.p`
 `;
 
 const Header = () => {
+  const user = false;
+
   return (
     <header
       css={css`
@@ -33,19 +36,46 @@ const Header = () => {
       `}
     >
       <ContainerHeader>
-        <div>
+        <div
+          css={css`
+            display: flex;
+            align-items: center;
+          `}
+        >
           <Link href="/">
             <Logo>P</Logo>
           </Link>
           <Search />
           <Navegation />
         </div>
-        <div>
-          <p>Hola: Jose</p>
+        <div
+          css={css`
+            display: flex;
+            align-items: center;
+          `}
+        >
+          {user ? (
+            <>
+              <p
+                css={css`
+                  margin-right: 2rem;
+                `}
+              >
+                Hola: Jose
+              </p>
 
-          <button type="button">Cerrar Sesión</button>
-          <Link href="/">Login</Link>
-          <Link href="/">Crear Cuenta</Link>
+              <Button bgColor="true">Cerrar Sesión</Button>
+            </>
+          ) : (
+            <>
+              <Link href="/login">
+                <Button bgColor="true">Login</Button>
+              </Link>
+              <Link href="/sing-up">
+                <Button>Crear Cuenta</Button>
+              </Link>
+            </>
+          )}
         </div>
       </ContainerHeader>
     </header>
