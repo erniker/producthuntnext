@@ -13,7 +13,7 @@ const useValidation = (initialState, validate, fn) => {
       }
       setSubmitForm(false);
     }
-  }, []);
+  }, [errors]);
 
   // Function that executing while user is writting
   const handleChange = (e) => {
@@ -31,7 +31,19 @@ const useValidation = (initialState, validate, fn) => {
     setSubmitForm(true);
   };
 
-  return { values, errors, submitForm, handleSubmit, handleChange };
+  // when occur blur event
+  const handleBlur = () => {
+    const valuesErrors = validate(values);
+    setErrors(valuesErrors);
+  };
+
+  return {
+    values,
+    errors,
+    handleSubmit,
+    handleChange,
+    handleBlur,
+  };
 };
 
 export default useValidation;

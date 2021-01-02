@@ -17,7 +17,7 @@ export default function signUpValidation(values) {
   if (!values.password) {
     errors.password = "El password es obligatorio";
   } else if (values.password.length < 6) {
-    errors.password = "El password debe ser de al enos 6 caracteres";
+    errors.password = "El password debe ser de al menos 6 caracteres";
   }
 
   return errors;

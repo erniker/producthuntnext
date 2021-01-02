@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "@emotion/react";
 import Layout from "../components/layout/Layout";
-import { Form, Field, InputSubmit } from "../components/ui/Form";
+import { Form, Field, InputSubmit, Error } from "../components/ui/Form";
 
 //Validations
 import useValidation from "../hooks/useValidation";
@@ -17,10 +17,13 @@ const SingUp = () => {
   const {
     values,
     errors,
-    submitForm,
     handleSubmit,
     handleChange,
+    handleBlur,
   } = useValidation(INITIAL_STATE, signUpValidation, createAcount);
+
+  // Destructure values
+  const { name, email, password } = values;
 
   function createAcount() {
     console.log("Creando cuenta...");
@@ -38,7 +41,7 @@ const SingUp = () => {
           >
             Crear cuenta
           </h1>
-          <Form>
+          <Form onSubmit={handleSubmit} noValidate>
             <Field>
               <label htmlFor="nombre">Nombre</label>
               <input
@@ -46,8 +49,12 @@ const SingUp = () => {
                 id="name"
                 placeholder="Tu Nombre"
                 name="name"
+                value={name}
+                onChange={handleChange}
+                onBlur={handleBlur}
               />
             </Field>
+            {errors.name && <Error>{errors.name}</Error>}
             <Field>
               <label htmlFor="email">Email</label>
               <input
@@ -55,8 +62,12 @@ const SingUp = () => {
                 id="email"
                 placeholder="Tu Email"
                 name="email"
+                value={email}
+                onChange={handleChange}
+                onBlur={handleBlur}
               />
             </Field>
+            {errors.email && <Error>{errors.email}</Error>}
             <Field>
               <label htmlFor="password">Password</label>
               <input
@@ -64,8 +75,12 @@ const SingUp = () => {
                 id="password"
                 placeholder="Tu Password"
                 name="password"
+                value={password}
+                onChange={handleChange}
+                onBlur={handleBlur}
               />
             </Field>
+            {errors.password && <Error>{errors.password}</Error>}
             <InputSubmit type="submit" value="Crear Cuenta"></InputSubmit>
           </Form>
         </>
