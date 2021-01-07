@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { css } from "@emotion/react";
+import Router from "next/router";
 import Layout from "../components/layout/Layout";
 import { Form, Field, InputSubmit, Error } from "../components/ui/Form";
+
+//Firebase
+import firebase from "../firebase";
 
 //Validations
 import useValidation from "../hooks/useValidation";
@@ -13,7 +17,9 @@ const INITIAL_STATE = {
   password: "",
 };
 
-const SingUp = () => {
+const SignUp = () => {
+  const [error, saveError] = useState(false);
+
   const {
     values,
     errors,
@@ -25,8 +31,14 @@ const SingUp = () => {
   // Destructure values
   const { name, email, password } = values;
 
-  function createAcount() {
-    console.log("Creando cuenta...");
+  async function createAcount() {
+    try {
+      await firebase.signUp(name, email, password);
+      Router.push("/");
+    } catch (error) {
+      console.error("Error creating user.", error.message);
+      saveError(error.message);
+    }
   }
 
   return (
@@ -81,6 +93,7 @@ const SingUp = () => {
               />
             </Field>
             {errors.password && <Error>{errors.password}</Error>}
+            {error && <Error>{error}</Error>}
             <InputSubmit type="submit" value="Crear Cuenta"></InputSubmit>
           </Form>
         </>
@@ -89,4 +102,4 @@ const SingUp = () => {
   );
 };
 
-export default SingUp;
+export default SignUp;

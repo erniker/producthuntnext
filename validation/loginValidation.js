@@ -1,10 +1,5 @@
-export default function signUpValidation(values) {
+export default function loginValidation(values) {
   let errors = {};
-
-  // Validate name of user
-  if (!values.name) {
-    errors.name = "El nombre es obligatorio";
-  }
 
   // Validate email of user
   if (!values.email) {

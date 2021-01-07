@@ -1,17 +1,38 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Layout from "../components/layout/Layout";
-import styled from "@emotion/styled";
+import { FirebaseContext } from "../firebase";
 
-const Heading = styled.h1`
-  color: red;
-`;
+const Home = () => {
+  const [products, saveProducts] = useState([]);
+  const { firebase } = useContext(FirebaseContext);
 
-const Home = () => (
-  <div>
-    <Layout>
-      <Heading>Inicio</Heading>
-    </Layout>
-  </div>
-);
+  useEffect(() => {
+    const getProducts = () => {
+      firebase.db
+        .collection("products")
+        .orderBy("created", "desc")
+        .onSnapshot(handleSnapshot);
+    };
+    getProducts();
+  }, []);
+
+  function handleSnapshot(snapshot) {
+    const products = snapshot.docs.map((doc) => {
+      return {
+        id: doc.id,
+        ...doc.data(),
+      };
+    });
+    saveProducts(products);
+  }
+
+  return (
+    <div>
+      <Layout>
+        <h1>Inicio</h1>
+      </Layout>
+    </div>
+  );
+};
 
 export default Home;
