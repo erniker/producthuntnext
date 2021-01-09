@@ -64,6 +64,10 @@ const NewProduct = () => {
       votes: 0,
       comments: [],
       created: Date.now(),
+      maker: {
+        id: user.uid,
+        name: user.displayName,
+      },
     };
 
     // Insert on BD
