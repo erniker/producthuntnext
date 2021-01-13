@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { es } from "date-fns/locale";
-import Link from "next/link";
+import Link from "next/Link";
 
 const Product = styled.li`
   padding: 4rem;

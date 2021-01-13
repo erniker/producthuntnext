@@ -21,9 +21,17 @@ const Navegation = () => {
 
   return (
     <Nav>
-      <Link href="/">Inicio</Link>
-      <Link href="/popular">Populares</Link>
-      {user && <Link href="/new-product">Nuevo Producto</Link>}
+      <Link href="/">
+        <a>Inicio</a>
+      </Link>
+      <Link href="/popular">
+        <a>Populares</a>
+      </Link>
+      {user && (
+        <Link href="/new-product">
+          <a>Nuevo Producto</a>
+        </Link>
+      )}
     </Nav>
   );
 };
