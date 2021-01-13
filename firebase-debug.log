@@ -1,0 +1,25 @@
+[debug] [2021-01-13T21:42:09.963Z] ----------------------------------------------------------------------
+[debug] [2021-01-13T21:42:09.967Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Localuser\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting
+[debug] [2021-01-13T21:42:09.968Z] CLI Version:   9.2.0
+[debug] [2021-01-13T21:42:09.968Z] Platform:      win32
+[debug] [2021-01-13T21:42:09.968Z] Node Version:  v14.8.0
+[debug] [2021-01-13T21:42:09.976Z] Time:          Wed Jan 13 2021 22:42:09 GMT+0100 (hora estándar de Europa central)
+[debug] [2021-01-13T21:42:09.977Z] ----------------------------------------------------------------------
+[debug] [2021-01-13T21:42:09.977Z] 
+[debug] [2021-01-13T21:42:09.997Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-01-13T21:42:10.002Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\jmedingr\Desktop\React\producthuntnext
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
